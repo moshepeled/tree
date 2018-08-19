@@ -1,0 +1,16 @@
+<div *ngFor="let contact of contacts">
+  <ul>
+    <li>
+      <a (click)="clickexpdis(contact)">
+        <i [ngClass]="{
+        'fa fa-minus': contact.type === 'Contact',
+        'fa fa-plus': contact.type === 'Group' 
+        }"></i>
+        {{contact.name}}
+      </a>
+      <div *ngIf="contact.expanded">
+        <tree-node [contacts]="contact.contacts" *ngIf="contact.contacts"></tree-node>
+      </div>
+    </li>
+  </ul>
+</div>
